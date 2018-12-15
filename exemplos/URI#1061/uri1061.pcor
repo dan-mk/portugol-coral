@@ -1,0 +1,22 @@
+var dia_i, hora_i, minuto_i, segundo_i : int
+var dia_f, hora_f, minuto_f, segundo_f : int
+
+dia_i = leia('palavra*, int')
+hora_i, minuto_i, segundo_i = leia('int, 3:char*, int, 3:char*, int')
+
+dia_f = leia('palavra*, int')
+hora_f, minuto_f, segundo_f = leia('int, 3:char*, int, 3:char*, int')
+
+var segundos_i, segundos_f, seguntos_evento : int
+
+segundos_i = dia_i * 24 * 60 * 60 + hora_i * 60 * 60 + minuto_i * 60 + segundo_i
+segundos_f = dia_f * 24 * 60 * 60 + hora_f * 60 * 60 + minuto_f * 60 + segundo_f
+segundos_evento = segundos_f - segundos_i
+
+escreva('@@ dia(s)', segundos_evento // (24 * 60 * 60))
+segundos_evento = segundos_evento % (24 * 60 * 60)
+escreva('@@ hora(s)', segundos_evento // (60 * 60))
+segundos_evento = segundos_evento % (60 * 60)
+escreva('@@ minuto(s)', segundos_evento // 60)
+segundos_evento = segundos_evento % 60
+escreva('@@ segundo(s)', segundos_evento)

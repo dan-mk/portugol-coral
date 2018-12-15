@@ -1,0 +1,22 @@
+var n, x : int
+
+n = leia('int')
+
+repita n vezes {
+	x = leia('int')
+	se x == 0 {
+		escreva('NULL')
+	} senao {
+		se x % 2 == 0 {
+			escreva('EVEN ', fim = '')
+		} senao {
+			escreva('ODD ', fim = '')
+		}
+		se x > 0 {
+			escreva('POSITIVE')
+		} senao {
+			escreva('NEGATIVE')
+		}
+	}
+}
+

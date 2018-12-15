@@ -1,0 +1,8 @@
+var n : int
+
+n = leia('int')
+
+repita para cada i no intervalo[1,10] {
+	escreva('@@ x @@ = @@', i, n, i * n)
+}
+

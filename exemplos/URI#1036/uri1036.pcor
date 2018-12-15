@@ -1,0 +1,17 @@
+var a, b, c : real
+var delta, R1, R2 : real
+
+a, b, c = leia('3:real')
+
+delta = b^2 - 4 * a * c
+
+se a == 0 ou delta < 0 {
+	escreva('Impossivel calcular')
+} senao {
+	R1 = (-b + delta) / (2 * a)
+	R2 = (-b - delta) / (2 * a)
+	
+	escreva('R1 = @.5@', R1)
+	escreva('R2 = @.5@', R2)
+}
+
