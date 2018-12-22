@@ -1,7 +1,7 @@
 from auxiliary import *
 
 def printNFA(NFA):
-	sep = '§'
+	sep = 'β'
 	transitions = sorted(getAllTransitions(NFA))
 
 	print('state', end = sep)
@@ -12,7 +12,7 @@ def printNFA(NFA):
 	NFAStates = sorted(NFA.keys())
 	for state in NFAStates:
 		if NFA[state]['final']:
-			print('£' + NFA[state]['final'] + '£ ', end = '')
+			print('δ' + NFA[state]['final'] + 'δ ', end = '')
 		print(state, end = sep)
 		for transition in transitions:
 			for i, transitionState in enumerate(NFA[state]['transitions'][transition]):

@@ -7,7 +7,7 @@ def tokensAndGrammarsFromFile(fileInput):
 	newGrammar = True
 	fp = open(fileInput)
 	for line in fp:
-		if line[-2] == ':':
+		if line[-2] == ':' and len(line) > 2:
 			newGrammar = True
 			grammarName = line[:-2]
 		elif '::=' not in line:
@@ -19,7 +19,7 @@ def tokensAndGrammarsFromFile(fileInput):
 				newGrammar = False
 			grammars[-1]['rules'].append(line[:-1])
 	fp.close()
-	
+
 	return tokens, grammars
 
 def tokenDFA(token):
@@ -28,7 +28,7 @@ def tokenDFA(token):
 		DFA[state] = {'final': False, 'transitions': {}}
 		DFA[state]['transitions'][char] = set([state + 1])
 	DFA[state + 1] = {'final': token, 'transitions': {}}
-	
+
 	return normalizeNFA(DFA)
 
 def grammarNFA(grammar):

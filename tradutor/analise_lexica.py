@@ -5,14 +5,14 @@ def loadAFD():
 	afd = {}
 	for i, line in enumerate(fp):
 		if i == 0:
-			header = line[:-1].split('§')[:-1]
+			header = line[:-1].split('β')[:-1]
 			continue
 
-		state = line[:-1].split('§')
+		state = line[:-1].split('β')
 		final = False
-		if '£' in state[0]:
-			final = state[0].split('£')[1]
-			stateNumber = int(state[0].split('£')[2].strip())
+		if 'δ' in state[0]:
+			final = state[0].split('δ')[1]
+			stateNumber = int(state[0].split('δ')[2].strip())
 		else:
 			stateNumber = int(state[0])
 		afd[stateNumber] = {'final': final, 'transitions': {}}
