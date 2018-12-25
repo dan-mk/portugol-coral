@@ -9,7 +9,7 @@ Acoes:
 	DeclararVariaveis | Atribuir;
 
 DeclararVariaveis:
-	'crie'? ('variaveis'|'variáveis') '{'
+	('variaveis'|'variáveis') '{'
 		(elementos+=DeclararVariaveisTipo)+
 	'}'
 ;
@@ -21,7 +21,7 @@ TipoVariavel:
 	'int' | 'real' | 'texto' | 'logico' | 'lógico';
 
 Atribuir:
-	{Atribuir} ('faca'|'faça')? variavel=ID '=' valor=Expressao;
+	{Atribuir} variavel=ID '=' valor=Expressao;
 
 Expressao:
 	esquerda=Ou;
@@ -71,11 +71,16 @@ PosicaoMatriz:
 ElementoAtomico returns Expressao:
 	{ConstanteInteira} valor=INT |
 	{ConstanteReal} valor=REAL |
-	{ConstanteString} valor=TEXTO |
+	{ConstanteString} valor=(TEXTO_ASPAS_SIMPLES|TEXTO_ASPAS_DUPLAS) |
 	{ReferenciaVariavel} variavel=ID
 ;
 
 terminal REAL: INT '.' INT? | '.' INT;
 
-terminal TEXTO:
+terminal TEXTO_ASPAS_SIMPLES:
+	"'" ( '\\' . /* 'b'|'t'|'n'|'f'|'r'|'u'|'"'|"'"|'\\' */ | !('\\'|"'") )* "'";
+
+terminal TEXTO_ASPAS_DUPLAS:
 	'"' ( '\\' . /* 'b'|'t'|'n'|'f'|'r'|'u'|'"'|"'"|'\\' */ | !('\\'|'"') )* '"';
+
+	

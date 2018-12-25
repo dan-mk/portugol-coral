@@ -149,32 +149,26 @@ ruleDeclararVariaveis returns [EObject current=null]
 }:
 	(
 		(
-			otherlv_0='crie'
+			otherlv_0='variaveis'
 			{
-				newLeafNode(otherlv_0, grammarAccess.getDeclararVariaveisAccess().getCrieKeyword_0());
-			}
-		)?
-		(
-			otherlv_1='variaveis'
-			{
-				newLeafNode(otherlv_1, grammarAccess.getDeclararVariaveisAccess().getVariaveisKeyword_1_0());
+				newLeafNode(otherlv_0, grammarAccess.getDeclararVariaveisAccess().getVariaveisKeyword_0_0());
 			}
 			    |
-			otherlv_2='vari\u00E1veis'
+			otherlv_1='vari\u00E1veis'
 			{
-				newLeafNode(otherlv_2, grammarAccess.getDeclararVariaveisAccess().getVariVeisKeyword_1_1());
+				newLeafNode(otherlv_1, grammarAccess.getDeclararVariaveisAccess().getVariVeisKeyword_0_1());
 			}
 		)
-		otherlv_3='{'
+		otherlv_2='{'
 		{
-			newLeafNode(otherlv_3, grammarAccess.getDeclararVariaveisAccess().getLeftCurlyBracketKeyword_2());
+			newLeafNode(otherlv_2, grammarAccess.getDeclararVariaveisAccess().getLeftCurlyBracketKeyword_1());
 		}
 		(
 			(
 				{
-					newCompositeNode(grammarAccess.getDeclararVariaveisAccess().getElementosDeclararVariaveisTipoParserRuleCall_3_0());
+					newCompositeNode(grammarAccess.getDeclararVariaveisAccess().getElementosDeclararVariaveisTipoParserRuleCall_2_0());
 				}
-				lv_elementos_4_0=ruleDeclararVariaveisTipo
+				lv_elementos_3_0=ruleDeclararVariaveisTipo
 				{
 					if ($current==null) {
 						$current = createModelElementForParent(grammarAccess.getDeclararVariaveisRule());
@@ -182,15 +176,15 @@ ruleDeclararVariaveis returns [EObject current=null]
 					add(
 						$current,
 						"elementos",
-						lv_elementos_4_0,
+						lv_elementos_3_0,
 						"org.xtext.coral.PortugolCoral.DeclararVariaveisTipo");
 					afterParserOrEnumRuleCall();
 				}
 			)
 		)+
-		otherlv_5='}'
+		otherlv_4='}'
 		{
-			newLeafNode(otherlv_5, grammarAccess.getDeclararVariaveisAccess().getRightCurlyBracketKeyword_4());
+			newLeafNode(otherlv_4, grammarAccess.getDeclararVariaveisAccess().getRightCurlyBracketKeyword_3());
 		}
 	)
 ;
@@ -351,21 +345,10 @@ ruleAtribuir returns [EObject current=null]
 			}
 		)
 		(
-			otherlv_1='faca'
-			{
-				newLeafNode(otherlv_1, grammarAccess.getAtribuirAccess().getFacaKeyword_1_0());
-			}
-			    |
-			otherlv_2='fa\u00E7a'
-			{
-				newLeafNode(otherlv_2, grammarAccess.getAtribuirAccess().getFaAKeyword_1_1());
-			}
-		)?
-		(
 			(
-				lv_variavel_3_0=RULE_ID
+				lv_variavel_1_0=RULE_ID
 				{
-					newLeafNode(lv_variavel_3_0, grammarAccess.getAtribuirAccess().getVariavelIDTerminalRuleCall_2_0());
+					newLeafNode(lv_variavel_1_0, grammarAccess.getAtribuirAccess().getVariavelIDTerminalRuleCall_1_0());
 				}
 				{
 					if ($current==null) {
@@ -374,21 +357,21 @@ ruleAtribuir returns [EObject current=null]
 					setWithLastConsumed(
 						$current,
 						"variavel",
-						lv_variavel_3_0,
+						lv_variavel_1_0,
 						"org.eclipse.xtext.common.Terminals.ID");
 				}
 			)
 		)
-		otherlv_4='='
+		otherlv_2='='
 		{
-			newLeafNode(otherlv_4, grammarAccess.getAtribuirAccess().getEqualsSignKeyword_3());
+			newLeafNode(otherlv_2, grammarAccess.getAtribuirAccess().getEqualsSignKeyword_2());
 		}
 		(
 			(
 				{
-					newCompositeNode(grammarAccess.getAtribuirAccess().getValorExpressaoParserRuleCall_4_0());
+					newCompositeNode(grammarAccess.getAtribuirAccess().getValorExpressaoParserRuleCall_3_0());
 				}
-				lv_valor_5_0=ruleExpressao
+				lv_valor_3_0=ruleExpressao
 				{
 					if ($current==null) {
 						$current = createModelElementForParent(grammarAccess.getAtribuirRule());
@@ -396,7 +379,7 @@ ruleAtribuir returns [EObject current=null]
 					set(
 						$current,
 						"valor",
-						lv_valor_5_0,
+						lv_valor_3_0,
 						"org.xtext.coral.PortugolCoral.Expressao");
 					afterParserOrEnumRuleCall();
 				}
@@ -1430,20 +1413,37 @@ ruleElementoAtomico returns [EObject current=null]
 			)
 			(
 				(
-					lv_valor_5_0=RULE_TEXTO
-					{
-						newLeafNode(lv_valor_5_0, grammarAccess.getElementoAtomicoAccess().getValorTEXTOTerminalRuleCall_2_1_0());
-					}
-					{
-						if ($current==null) {
-							$current = createModelElement(grammarAccess.getElementoAtomicoRule());
+					(
+						lv_valor_5_1=RULE_TEXTO_ASPAS_SIMPLES
+						{
+							newLeafNode(lv_valor_5_1, grammarAccess.getElementoAtomicoAccess().getValorTEXTO_ASPAS_SIMPLESTerminalRuleCall_2_1_0_0());
 						}
-						setWithLastConsumed(
-							$current,
-							"valor",
-							lv_valor_5_0,
-							"org.xtext.coral.PortugolCoral.TEXTO");
-					}
+						{
+							if ($current==null) {
+								$current = createModelElement(grammarAccess.getElementoAtomicoRule());
+							}
+							setWithLastConsumed(
+								$current,
+								"valor",
+								lv_valor_5_1,
+								"org.xtext.coral.PortugolCoral.TEXTO_ASPAS_SIMPLES");
+						}
+						    |
+						lv_valor_5_2=RULE_TEXTO_ASPAS_DUPLAS
+						{
+							newLeafNode(lv_valor_5_2, grammarAccess.getElementoAtomicoAccess().getValorTEXTO_ASPAS_DUPLASTerminalRuleCall_2_1_0_1());
+						}
+						{
+							if ($current==null) {
+								$current = createModelElement(grammarAccess.getElementoAtomicoRule());
+							}
+							setWithLastConsumed(
+								$current,
+								"valor",
+								lv_valor_5_2,
+								"org.xtext.coral.PortugolCoral.TEXTO_ASPAS_DUPLAS");
+						}
+					)
 				)
 			)
 		)
@@ -1480,7 +1480,9 @@ ruleElementoAtomico returns [EObject current=null]
 
 RULE_REAL : (RULE_INT '.' RULE_INT?|'.' RULE_INT);
 
-RULE_TEXTO : '"' ('\\' .|~(('\\'|'"')))* '"';
+RULE_TEXTO_ASPAS_SIMPLES : '\'' ('\\' .|~(('\\'|'\'')))* '\'';
+
+RULE_TEXTO_ASPAS_DUPLAS : '"' ('\\' .|~(('\\'|'"')))* '"';
 
 RULE_ID : '^'? ('a'..'z'|'A'..'Z'|'_') ('a'..'z'|'A'..'Z'|'_'|'0'..'9')*;
 

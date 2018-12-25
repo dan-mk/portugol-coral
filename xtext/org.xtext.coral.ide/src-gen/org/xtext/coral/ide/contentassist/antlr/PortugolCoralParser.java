@@ -32,9 +32,8 @@ public class PortugolCoralParser extends AbstractContentAssistParser {
 		
 		private static void init(ImmutableMap.Builder<AbstractElement, String> builder, PortugolCoralGrammarAccess grammarAccess) {
 			builder.put(grammarAccess.getAcoesAccess().getAlternatives(), "rule__Acoes__Alternatives");
-			builder.put(grammarAccess.getDeclararVariaveisAccess().getAlternatives_1(), "rule__DeclararVariaveis__Alternatives_1");
+			builder.put(grammarAccess.getDeclararVariaveisAccess().getAlternatives_0(), "rule__DeclararVariaveis__Alternatives_0");
 			builder.put(grammarAccess.getTipoVariavelAccess().getAlternatives(), "rule__TipoVariavel__Alternatives");
-			builder.put(grammarAccess.getAtribuirAccess().getAlternatives_1(), "rule__Atribuir__Alternatives_1");
 			builder.put(grammarAccess.getNaoAccess().getNaosAlternatives_0_0(), "rule__Nao__NaosAlternatives_0_0");
 			builder.put(grammarAccess.getComparacaoAccess().getComparacaoAlternatives_1_1_0(), "rule__Comparacao__ComparacaoAlternatives_1_1_0");
 			builder.put(grammarAccess.getAdicaoOuSubtracaoAccess().getOperacaoAlternatives_1_1_0(), "rule__AdicaoOuSubtracao__OperacaoAlternatives_1_1_0");
@@ -42,6 +41,7 @@ public class PortugolCoralParser extends AbstractContentAssistParser {
 			builder.put(grammarAccess.getSinalAccess().getSinaisAlternatives_0_0(), "rule__Sinal__SinaisAlternatives_0_0");
 			builder.put(grammarAccess.getElementoAccess().getAlternatives(), "rule__Elemento__Alternatives");
 			builder.put(grammarAccess.getElementoAtomicoAccess().getAlternatives(), "rule__ElementoAtomico__Alternatives");
+			builder.put(grammarAccess.getElementoAtomicoAccess().getValorAlternatives_2_1_0(), "rule__ElementoAtomico__ValorAlternatives_2_1_0");
 			builder.put(grammarAccess.getDeclararVariaveisAccess().getGroup(), "rule__DeclararVariaveis__Group__0");
 			builder.put(grammarAccess.getDeclararVariaveisTipoAccess().getGroup(), "rule__DeclararVariaveisTipo__Group__0");
 			builder.put(grammarAccess.getDeclararVariaveisTipoAccess().getGroup_1(), "rule__DeclararVariaveisTipo__Group_1__0");
@@ -70,12 +70,12 @@ public class PortugolCoralParser extends AbstractContentAssistParser {
 			builder.put(grammarAccess.getElementoAtomicoAccess().getGroup_2(), "rule__ElementoAtomico__Group_2__0");
 			builder.put(grammarAccess.getElementoAtomicoAccess().getGroup_3(), "rule__ElementoAtomico__Group_3__0");
 			builder.put(grammarAccess.getPortugolcoralAccess().getElementosAssignment(), "rule__Portugolcoral__ElementosAssignment");
-			builder.put(grammarAccess.getDeclararVariaveisAccess().getElementosAssignment_3(), "rule__DeclararVariaveis__ElementosAssignment_3");
+			builder.put(grammarAccess.getDeclararVariaveisAccess().getElementosAssignment_2(), "rule__DeclararVariaveis__ElementosAssignment_2");
 			builder.put(grammarAccess.getDeclararVariaveisTipoAccess().getElementosAssignment_0(), "rule__DeclararVariaveisTipo__ElementosAssignment_0");
 			builder.put(grammarAccess.getDeclararVariaveisTipoAccess().getElementosAssignment_1_1(), "rule__DeclararVariaveisTipo__ElementosAssignment_1_1");
 			builder.put(grammarAccess.getDeclararVariaveisTipoAccess().getTipoAssignment_3(), "rule__DeclararVariaveisTipo__TipoAssignment_3");
-			builder.put(grammarAccess.getAtribuirAccess().getVariavelAssignment_2(), "rule__Atribuir__VariavelAssignment_2");
-			builder.put(grammarAccess.getAtribuirAccess().getValorAssignment_4(), "rule__Atribuir__ValorAssignment_4");
+			builder.put(grammarAccess.getAtribuirAccess().getVariavelAssignment_1(), "rule__Atribuir__VariavelAssignment_1");
+			builder.put(grammarAccess.getAtribuirAccess().getValorAssignment_3(), "rule__Atribuir__ValorAssignment_3");
 			builder.put(grammarAccess.getExpressaoAccess().getEsquerdaAssignment(), "rule__Expressao__EsquerdaAssignment");
 			builder.put(grammarAccess.getOuAccess().getDireitaAssignment_1_2(), "rule__Ou__DireitaAssignment_1_2");
 			builder.put(grammarAccess.getEAccess().getDireitaAssignment_1_2(), "rule__E__DireitaAssignment_1_2");

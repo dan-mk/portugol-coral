@@ -1,0 +1,20 @@
+variaveis {
+	qtd_notas : int
+	nota, soma_notas, media : real
+}
+
+escreva("Quantidade de notas: ")
+qtd_notas = leia("int")
+
+soma_notas = 0
+repita qtd_notas vezes {
+	escreva("Nota: ")
+	nota = leia("real")
+	soma_notas = soma_notas + nota
+}
+
+media = soma_notas / qtd_notas
+
+escreva("Sua média é: <.1>", media)
+
+

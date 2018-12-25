@@ -1,11 +1,10 @@
-crie variaveis {
+variaveis {
 	nome : texto
 	qtd_notas : int
 	nota, soma, media : real
 	aprovado : logico
 }
 
-- 'crie' opcional
 - variáveis numéricas são inicializadas com 0
 - variáveis do tipo texto são inicializadas com uma string vazia
 - variáveis do tipo lógico são inicializadas com falso

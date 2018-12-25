@@ -335,7 +335,7 @@ public class PortugolCoralGenerator extends AbstractGenerator {
     }
     if (!_matched) {
       String _output = output;
-      output = (_output + ("deuruim" + f));
+      output = (_output + ((" ERRO -> " + f) + " "));
     }
     return output;
   }

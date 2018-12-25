@@ -155,8 +155,8 @@ public class PortugolCoralSemanticSequencer extends AbstractDelegatingSemanticSe
 				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, PortugolcoralPackage.Literals.ATRIBUIR__VALOR));
 		}
 		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
-		feeder.accept(grammarAccess.getAtribuirAccess().getVariavelIDTerminalRuleCall_2_0(), semanticObject.getVariavel());
-		feeder.accept(grammarAccess.getAtribuirAccess().getValorExpressaoParserRuleCall_4_0(), semanticObject.getValor());
+		feeder.accept(grammarAccess.getAtribuirAccess().getVariavelIDTerminalRuleCall_1_0(), semanticObject.getVariavel());
+		feeder.accept(grammarAccess.getAtribuirAccess().getValorExpressaoParserRuleCall_3_0(), semanticObject.getValor());
 		feeder.finish();
 	}
 	
@@ -284,16 +284,10 @@ public class PortugolCoralSemanticSequencer extends AbstractDelegatingSemanticSe
 	 *     ElementoAtomico returns ConstanteString
 	 *
 	 * Constraint:
-	 *     valor=TEXTO
+	 *     (valor=TEXTO_ASPAS_SIMPLES | valor=TEXTO_ASPAS_DUPLAS)
 	 */
 	protected void sequence_ElementoAtomico(ISerializationContext context, ConstanteString semanticObject) {
-		if (errorAcceptor != null) {
-			if (transientValues.isValueTransient(semanticObject, PortugolcoralPackage.Literals.CONSTANTE_STRING__VALOR) == ValueTransient.YES)
-				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, PortugolcoralPackage.Literals.CONSTANTE_STRING__VALOR));
-		}
-		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
-		feeder.accept(grammarAccess.getElementoAtomicoAccess().getValorTEXTOTerminalRuleCall_2_1_0(), semanticObject.getValor());
-		feeder.finish();
+		genericSequencer.createSequence(context, semanticObject);
 	}
 	
 	

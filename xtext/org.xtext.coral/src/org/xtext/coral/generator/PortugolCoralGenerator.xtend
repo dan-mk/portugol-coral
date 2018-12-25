@@ -103,7 +103,7 @@ class PortugolCoralGenerator extends AbstractGenerator {
 			Expressao:
 				output += f.esquerda.compile
 			default:
-				output += "deuruim" + f
+				output += " ERRO -> " + f + " "
 		}
 		return output
 	}

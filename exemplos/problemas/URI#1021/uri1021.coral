@@ -1,0 +1,28 @@
+variaveis {
+	valor_reais : real
+	valor_centavos : int
+}
+
+valor_reais = leia("real")
+valor_centavos = 100 * valor_reais
+
+variaveis {
+	notas[6], moedas[6] : int
+}
+
+notas = [100, 50, 20, 10, 5, 2]
+moedas = [100, 50, 25, 10, 5, 1]
+
+escreva("NOTAS:")
+repita para cada nota em notas {
+	nota *= 100
+	escreva("<> nota(s) de R$ <>.00", valor_centavos // nota, nota)
+	valor_centavos = valor_centavos % nota
+}
+
+escreva("MOEDAS:")
+repita para cada moeda em moedas {
+	escreva("<> moedas(s) de R$ <.2>", valor_centavos // moeda, moeda / 100)
+	valor_centavos = valor_centavos % moeda
+}
+

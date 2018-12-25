@@ -60,47 +60,43 @@ public class PortugolCoralGrammarAccess extends AbstractGrammarElementFinder {
 	public class DeclararVariaveisElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "org.xtext.coral.PortugolCoral.DeclararVariaveis");
 		private final Group cGroup = (Group)rule.eContents().get(1);
-		private final Keyword cCrieKeyword_0 = (Keyword)cGroup.eContents().get(0);
-		private final Alternatives cAlternatives_1 = (Alternatives)cGroup.eContents().get(1);
-		private final Keyword cVariaveisKeyword_1_0 = (Keyword)cAlternatives_1.eContents().get(0);
-		private final Keyword cVariVeisKeyword_1_1 = (Keyword)cAlternatives_1.eContents().get(1);
-		private final Keyword cLeftCurlyBracketKeyword_2 = (Keyword)cGroup.eContents().get(2);
-		private final Assignment cElementosAssignment_3 = (Assignment)cGroup.eContents().get(3);
-		private final RuleCall cElementosDeclararVariaveisTipoParserRuleCall_3_0 = (RuleCall)cElementosAssignment_3.eContents().get(0);
-		private final Keyword cRightCurlyBracketKeyword_4 = (Keyword)cGroup.eContents().get(4);
+		private final Alternatives cAlternatives_0 = (Alternatives)cGroup.eContents().get(0);
+		private final Keyword cVariaveisKeyword_0_0 = (Keyword)cAlternatives_0.eContents().get(0);
+		private final Keyword cVariVeisKeyword_0_1 = (Keyword)cAlternatives_0.eContents().get(1);
+		private final Keyword cLeftCurlyBracketKeyword_1 = (Keyword)cGroup.eContents().get(1);
+		private final Assignment cElementosAssignment_2 = (Assignment)cGroup.eContents().get(2);
+		private final RuleCall cElementosDeclararVariaveisTipoParserRuleCall_2_0 = (RuleCall)cElementosAssignment_2.eContents().get(0);
+		private final Keyword cRightCurlyBracketKeyword_3 = (Keyword)cGroup.eContents().get(3);
 		
 		//DeclararVariaveis:
-		//	'crie'? ('variaveis' | 'variáveis') '{'
+		//	('variaveis' | 'variáveis') '{'
 		//	elementos+=DeclararVariaveisTipo+
 		//	'}';
 		@Override public ParserRule getRule() { return rule; }
 		
-		//'crie'? ('variaveis' | 'variáveis') '{' elementos+=DeclararVariaveisTipo+ '}'
+		//('variaveis' | 'variáveis') '{' elementos+=DeclararVariaveisTipo+ '}'
 		public Group getGroup() { return cGroup; }
 		
-		//'crie'?
-		public Keyword getCrieKeyword_0() { return cCrieKeyword_0; }
-		
 		//'variaveis' | 'variáveis'
-		public Alternatives getAlternatives_1() { return cAlternatives_1; }
+		public Alternatives getAlternatives_0() { return cAlternatives_0; }
 		
 		//'variaveis'
-		public Keyword getVariaveisKeyword_1_0() { return cVariaveisKeyword_1_0; }
+		public Keyword getVariaveisKeyword_0_0() { return cVariaveisKeyword_0_0; }
 		
 		//'variáveis'
-		public Keyword getVariVeisKeyword_1_1() { return cVariVeisKeyword_1_1; }
+		public Keyword getVariVeisKeyword_0_1() { return cVariVeisKeyword_0_1; }
 		
 		//'{'
-		public Keyword getLeftCurlyBracketKeyword_2() { return cLeftCurlyBracketKeyword_2; }
+		public Keyword getLeftCurlyBracketKeyword_1() { return cLeftCurlyBracketKeyword_1; }
 		
 		//elementos+=DeclararVariaveisTipo+
-		public Assignment getElementosAssignment_3() { return cElementosAssignment_3; }
+		public Assignment getElementosAssignment_2() { return cElementosAssignment_2; }
 		
 		//DeclararVariaveisTipo
-		public RuleCall getElementosDeclararVariaveisTipoParserRuleCall_3_0() { return cElementosDeclararVariaveisTipoParserRuleCall_3_0; }
+		public RuleCall getElementosDeclararVariaveisTipoParserRuleCall_2_0() { return cElementosDeclararVariaveisTipoParserRuleCall_2_0; }
 		
 		//'}'
-		public Keyword getRightCurlyBracketKeyword_4() { return cRightCurlyBracketKeyword_4; }
+		public Keyword getRightCurlyBracketKeyword_3() { return cRightCurlyBracketKeyword_3; }
 	}
 	public class DeclararVariaveisTipoElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "org.xtext.coral.PortugolCoral.DeclararVariaveisTipo");
@@ -184,48 +180,36 @@ public class PortugolCoralGrammarAccess extends AbstractGrammarElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "org.xtext.coral.PortugolCoral.Atribuir");
 		private final Group cGroup = (Group)rule.eContents().get(1);
 		private final Action cAtribuirAction_0 = (Action)cGroup.eContents().get(0);
-		private final Alternatives cAlternatives_1 = (Alternatives)cGroup.eContents().get(1);
-		private final Keyword cFacaKeyword_1_0 = (Keyword)cAlternatives_1.eContents().get(0);
-		private final Keyword cFaAKeyword_1_1 = (Keyword)cAlternatives_1.eContents().get(1);
-		private final Assignment cVariavelAssignment_2 = (Assignment)cGroup.eContents().get(2);
-		private final RuleCall cVariavelIDTerminalRuleCall_2_0 = (RuleCall)cVariavelAssignment_2.eContents().get(0);
-		private final Keyword cEqualsSignKeyword_3 = (Keyword)cGroup.eContents().get(3);
-		private final Assignment cValorAssignment_4 = (Assignment)cGroup.eContents().get(4);
-		private final RuleCall cValorExpressaoParserRuleCall_4_0 = (RuleCall)cValorAssignment_4.eContents().get(0);
+		private final Assignment cVariavelAssignment_1 = (Assignment)cGroup.eContents().get(1);
+		private final RuleCall cVariavelIDTerminalRuleCall_1_0 = (RuleCall)cVariavelAssignment_1.eContents().get(0);
+		private final Keyword cEqualsSignKeyword_2 = (Keyword)cGroup.eContents().get(2);
+		private final Assignment cValorAssignment_3 = (Assignment)cGroup.eContents().get(3);
+		private final RuleCall cValorExpressaoParserRuleCall_3_0 = (RuleCall)cValorAssignment_3.eContents().get(0);
 		
 		//Atribuir:
-		//	{Atribuir} ('faca' | 'faça')? variavel=ID '=' valor=Expressao;
+		//	{Atribuir} variavel=ID '=' valor=Expressao;
 		@Override public ParserRule getRule() { return rule; }
 		
-		//{Atribuir} ('faca' | 'faça')? variavel=ID '=' valor=Expressao
+		//{Atribuir} variavel=ID '=' valor=Expressao
 		public Group getGroup() { return cGroup; }
 		
 		//{Atribuir}
 		public Action getAtribuirAction_0() { return cAtribuirAction_0; }
 		
-		//('faca' | 'faça')?
-		public Alternatives getAlternatives_1() { return cAlternatives_1; }
-		
-		//'faca'
-		public Keyword getFacaKeyword_1_0() { return cFacaKeyword_1_0; }
-		
-		//'faça'
-		public Keyword getFaAKeyword_1_1() { return cFaAKeyword_1_1; }
-		
 		//variavel=ID
-		public Assignment getVariavelAssignment_2() { return cVariavelAssignment_2; }
+		public Assignment getVariavelAssignment_1() { return cVariavelAssignment_1; }
 		
 		//ID
-		public RuleCall getVariavelIDTerminalRuleCall_2_0() { return cVariavelIDTerminalRuleCall_2_0; }
+		public RuleCall getVariavelIDTerminalRuleCall_1_0() { return cVariavelIDTerminalRuleCall_1_0; }
 		
 		//'='
-		public Keyword getEqualsSignKeyword_3() { return cEqualsSignKeyword_3; }
+		public Keyword getEqualsSignKeyword_2() { return cEqualsSignKeyword_2; }
 		
 		//valor=Expressao
-		public Assignment getValorAssignment_4() { return cValorAssignment_4; }
+		public Assignment getValorAssignment_3() { return cValorAssignment_3; }
 		
 		//Expressao
-		public RuleCall getValorExpressaoParserRuleCall_4_0() { return cValorExpressaoParserRuleCall_4_0; }
+		public RuleCall getValorExpressaoParserRuleCall_3_0() { return cValorExpressaoParserRuleCall_3_0; }
 	}
 	public class ExpressaoElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "org.xtext.coral.PortugolCoral.Expressao");
@@ -752,19 +736,21 @@ public class PortugolCoralGrammarAccess extends AbstractGrammarElementFinder {
 		private final Group cGroup_2 = (Group)cAlternatives.eContents().get(2);
 		private final Action cConstanteStringAction_2_0 = (Action)cGroup_2.eContents().get(0);
 		private final Assignment cValorAssignment_2_1 = (Assignment)cGroup_2.eContents().get(1);
-		private final RuleCall cValorTEXTOTerminalRuleCall_2_1_0 = (RuleCall)cValorAssignment_2_1.eContents().get(0);
+		private final Alternatives cValorAlternatives_2_1_0 = (Alternatives)cValorAssignment_2_1.eContents().get(0);
+		private final RuleCall cValorTEXTO_ASPAS_SIMPLESTerminalRuleCall_2_1_0_0 = (RuleCall)cValorAlternatives_2_1_0.eContents().get(0);
+		private final RuleCall cValorTEXTO_ASPAS_DUPLASTerminalRuleCall_2_1_0_1 = (RuleCall)cValorAlternatives_2_1_0.eContents().get(1);
 		private final Group cGroup_3 = (Group)cAlternatives.eContents().get(3);
 		private final Action cReferenciaVariavelAction_3_0 = (Action)cGroup_3.eContents().get(0);
 		private final Assignment cVariavelAssignment_3_1 = (Assignment)cGroup_3.eContents().get(1);
 		private final RuleCall cVariavelIDTerminalRuleCall_3_1_0 = (RuleCall)cVariavelAssignment_3_1.eContents().get(0);
 		
 		//ElementoAtomico Expressao:
-		//	{ConstanteInteira} valor=INT | {ConstanteReal} valor=REAL | {ConstanteString} valor=TEXTO | {ReferenciaVariavel}
-		//	variavel=ID;
+		//	{ConstanteInteira} valor=INT | {ConstanteReal} valor=REAL | {ConstanteString} valor=(TEXTO_ASPAS_SIMPLES |
+		//	TEXTO_ASPAS_DUPLAS) | {ReferenciaVariavel} variavel=ID;
 		@Override public ParserRule getRule() { return rule; }
 		
-		//{ConstanteInteira} valor=INT | {ConstanteReal} valor=REAL | {ConstanteString} valor=TEXTO | {ReferenciaVariavel}
-		//variavel=ID
+		//{ConstanteInteira} valor=INT | {ConstanteReal} valor=REAL | {ConstanteString} valor=(TEXTO_ASPAS_SIMPLES |
+		//TEXTO_ASPAS_DUPLAS) | {ReferenciaVariavel} variavel=ID
 		public Alternatives getAlternatives() { return cAlternatives; }
 		
 		//{ConstanteInteira} valor=INT
@@ -791,17 +777,23 @@ public class PortugolCoralGrammarAccess extends AbstractGrammarElementFinder {
 		//REAL
 		public RuleCall getValorREALTerminalRuleCall_1_1_0() { return cValorREALTerminalRuleCall_1_1_0; }
 		
-		//{ConstanteString} valor=TEXTO
+		//{ConstanteString} valor=(TEXTO_ASPAS_SIMPLES | TEXTO_ASPAS_DUPLAS)
 		public Group getGroup_2() { return cGroup_2; }
 		
 		//{ConstanteString}
 		public Action getConstanteStringAction_2_0() { return cConstanteStringAction_2_0; }
 		
-		//valor=TEXTO
+		//valor=(TEXTO_ASPAS_SIMPLES | TEXTO_ASPAS_DUPLAS)
 		public Assignment getValorAssignment_2_1() { return cValorAssignment_2_1; }
 		
-		//TEXTO
-		public RuleCall getValorTEXTOTerminalRuleCall_2_1_0() { return cValorTEXTOTerminalRuleCall_2_1_0; }
+		//(TEXTO_ASPAS_SIMPLES | TEXTO_ASPAS_DUPLAS)
+		public Alternatives getValorAlternatives_2_1_0() { return cValorAlternatives_2_1_0; }
+		
+		//TEXTO_ASPAS_SIMPLES
+		public RuleCall getValorTEXTO_ASPAS_SIMPLESTerminalRuleCall_2_1_0_0() { return cValorTEXTO_ASPAS_SIMPLESTerminalRuleCall_2_1_0_0; }
+		
+		//TEXTO_ASPAS_DUPLAS
+		public RuleCall getValorTEXTO_ASPAS_DUPLASTerminalRuleCall_2_1_0_1() { return cValorTEXTO_ASPAS_DUPLASTerminalRuleCall_2_1_0_1; }
 		
 		//{ReferenciaVariavel} variavel=ID
 		public Group getGroup_3() { return cGroup_3; }
@@ -840,7 +832,8 @@ public class PortugolCoralGrammarAccess extends AbstractGrammarElementFinder {
 	private final PosicaoMatrizElements pPosicaoMatriz;
 	private final ElementoAtomicoElements pElementoAtomico;
 	private final TerminalRule tREAL;
-	private final TerminalRule tTEXTO;
+	private final TerminalRule tTEXTO_ASPAS_SIMPLES;
+	private final TerminalRule tTEXTO_ASPAS_DUPLAS;
 	
 	private final Grammar grammar;
 	
@@ -874,7 +867,8 @@ public class PortugolCoralGrammarAccess extends AbstractGrammarElementFinder {
 		this.pPosicaoMatriz = new PosicaoMatrizElements();
 		this.pElementoAtomico = new ElementoAtomicoElements();
 		this.tREAL = (TerminalRule) GrammarUtil.findRuleForName(getGrammar(), "org.xtext.coral.PortugolCoral.REAL");
-		this.tTEXTO = (TerminalRule) GrammarUtil.findRuleForName(getGrammar(), "org.xtext.coral.PortugolCoral.TEXTO");
+		this.tTEXTO_ASPAS_SIMPLES = (TerminalRule) GrammarUtil.findRuleForName(getGrammar(), "org.xtext.coral.PortugolCoral.TEXTO_ASPAS_SIMPLES");
+		this.tTEXTO_ASPAS_DUPLAS = (TerminalRule) GrammarUtil.findRuleForName(getGrammar(), "org.xtext.coral.PortugolCoral.TEXTO_ASPAS_DUPLAS");
 	}
 	
 	protected Grammar internalFindGrammar(GrammarProvider grammarProvider) {
@@ -925,7 +919,7 @@ public class PortugolCoralGrammarAccess extends AbstractGrammarElementFinder {
 	}
 	
 	//DeclararVariaveis:
-	//	'crie'? ('variaveis' | 'variáveis') '{'
+	//	('variaveis' | 'variáveis') '{'
 	//	elementos+=DeclararVariaveisTipo+
 	//	'}';
 	public DeclararVariaveisElements getDeclararVariaveisAccess() {
@@ -957,7 +951,7 @@ public class PortugolCoralGrammarAccess extends AbstractGrammarElementFinder {
 	}
 	
 	//Atribuir:
-	//	{Atribuir} ('faca' | 'faça')? variavel=ID '=' valor=Expressao;
+	//	{Atribuir} variavel=ID '=' valor=Expressao;
 	public AtribuirElements getAtribuirAccess() {
 		return pAtribuir;
 	}
@@ -1118,8 +1112,8 @@ public class PortugolCoralGrammarAccess extends AbstractGrammarElementFinder {
 	}
 	
 	//ElementoAtomico Expressao:
-	//	{ConstanteInteira} valor=INT | {ConstanteReal} valor=REAL | {ConstanteString} valor=TEXTO | {ReferenciaVariavel}
-	//	variavel=ID;
+	//	{ConstanteInteira} valor=INT | {ConstanteReal} valor=REAL | {ConstanteString} valor=(TEXTO_ASPAS_SIMPLES |
+	//	TEXTO_ASPAS_DUPLAS) | {ReferenciaVariavel} variavel=ID;
 	public ElementoAtomicoElements getElementoAtomicoAccess() {
 		return pElementoAtomico;
 	}
@@ -1134,10 +1128,16 @@ public class PortugolCoralGrammarAccess extends AbstractGrammarElementFinder {
 		return tREAL;
 	}
 	
-	//terminal TEXTO:
+	//terminal TEXTO_ASPAS_SIMPLES:
+	//	"'" ('\\' . | !('\\' | "'"))* "'";
+	public TerminalRule getTEXTO_ASPAS_SIMPLESRule() {
+		return tTEXTO_ASPAS_SIMPLES;
+	}
+	
+	//terminal TEXTO_ASPAS_DUPLAS:
 	//	'"' ('\\' . | !('\\' | '"'))* '"';
-	public TerminalRule getTEXTORule() {
-		return tTEXTO;
+	public TerminalRule getTEXTO_ASPAS_DUPLASRule() {
+		return tTEXTO_ASPAS_DUPLAS;
 	}
 	
 	//terminal ID:
