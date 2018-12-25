@@ -1,0 +1,13 @@
+
+@variaveis {
+	<nome da variável>, <nome da variável> : <tipo de dado>
+	<nome da variável> : <tipo de dado>
+}
+
+funcao <nome da função> : <tipo de dado de retorno> {
+	@parametros {
+		<nome da variável>, <nome da variável> : <tipo de dado>
+		<nome da variável> : <tipo de dado>
+	}
+	<ações>
+}

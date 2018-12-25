@@ -1,0 +1,81 @@
+grammar org.xtext.coral.PortugolCoral with org.eclipse.xtext.common.Terminals
+ 
+generate portugolcoral "http://www.example.org/portugolcoral/PortugolCoral"
+
+Portugolcoral:
+    (elementos+=Acoes)*;
+    
+Acoes:
+	DeclararVariaveis | Atribuir;
+
+DeclararVariaveis:
+	'crie'? ('variaveis'|'variáveis') '{'
+		(elementos+=DeclararVariaveisTipo)+
+	'}'
+;
+
+DeclararVariaveisTipo:
+	elementos+=ID (',' elementos+=ID)* ':' tipo=TipoVariavel;
+
+TipoVariavel:
+	'int' | 'real' | 'texto' | 'logico' | 'lógico';
+
+Atribuir:
+	{Atribuir} ('faca'|'faça')? variavel=ID '=' valor=Expressao;
+
+Expressao:
+	esquerda=Ou;
+
+Ou returns Expressao:
+	E ({Ou.esquerda=current} 'ou' direita=E)*;
+
+E returns Expressao:
+	Xou ({E.esquerda=current} 'e' direita=Xou)*;
+	
+Xou returns Expressao:
+	Nao ({Xou.esquerda=current} 'xou' direita=Nao)*;
+
+Nao:
+	naos+=('nao'|'não')* direita=Comparacao;
+
+Comparacao returns Expressao:
+	AdicaoOuSubtracao ({Comparacao.esquerda=current} comparacao=('<='|'=='|'>='|'<'|'>'|'!=') direita=AdicaoOuSubtracao)*;
+
+AdicaoOuSubtracao returns Expressao:
+	MultiplicacaoOuDivisao ({AdicaoOuSubtracao.esquerda=current} operacao=('+'|'-') direita=MultiplicacaoOuDivisao)*;
+ 
+MultiplicacaoOuDivisao returns Expressao:
+	Sinal ({MultiplicacaoOuDivisao.esquerda=current} operacao=('*'|'/'|'//'|'%') direita=Sinal)*;
+
+Sinal:
+	sinais+=('+'|'-')* direita=Exponenciacao;
+
+Exponenciacao returns Expressao:
+	Elemento ({Exponenciacao.esquerda=current} '^' direita=Elemento)*;
+
+Elemento returns Expressao:
+	ElementoParenteses | ElementoAtomico | Matriz;
+
+ElementoParenteses:
+	direita=Parenteses;
+
+Parenteses:
+	'(' direita=Expressao ')';
+
+Matriz:
+	variavel=ID (direita+=PosicaoMatriz)+;
+
+PosicaoMatriz:
+	'[' direita=Expressao ']';
+
+ElementoAtomico returns Expressao:
+	{ConstanteInteira} valor=INT |
+	{ConstanteReal} valor=REAL |
+	{ConstanteString} valor=TEXTO |
+	{ReferenciaVariavel} variavel=ID
+;
+
+terminal REAL: INT '.' INT? | '.' INT;
+
+terminal TEXTO:
+	'"' ( '\\' . /* 'b'|'t'|'n'|'f'|'r'|'u'|'"'|"'"|'\\' */ | !('\\'|'"') )* '"';

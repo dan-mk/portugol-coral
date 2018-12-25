@@ -1,24 +1,38 @@
 <inicio>::=<acoes>
 
 <acoes>::=<acoes_A> <acoes_B>|<acoes_B>|ε
-<acoes_A>::=<declaracao>|<atribuicao>|<estrutura>|<leia>|<escreva>
+<acoes_A>::=<declaracao>|<atribuicao>|<estrutura>|<estrutura_condicional_ou_repeticao>|<expressao>
 <acoes_B>::=\n <acoes>
 
-<acoes_internas>::=<acoes_internas_A> <acoes_internas_B>|<acoes_internas_B>|ε
-<acoes_internas_A>::=<atribuicao>|<estrutura>|<leia>|<escreva>
-<acoes_internas_B>::=\n <acoes_internas>
+<tipo_de_dado>::=<tipo_de_dado_A>|[ <tipo_de_dado> ]
+<tipo_de_dado_A>::=int|real|texto|logico|estrutura identificador
 
-<tipo_de_dado>::=int|real|caractere|bool
+<declaracao>::=var identificador <declaracao_A>
+<declaracao_A>::=, identificador <declaracao_A>|<declaracao_B>
+<declaracao_A>::=: <tipo_de_dado>
 
-<declaracao>::=var <tipo_de_dado> variavel <declaracao_A>
-<declaracao_A>::=, variavel <declaracao_A>|ε
+<chamada_de_funcao>::=identificador ( <chamada_de_funcao_A> )
+<chamada_de_funcao_A>::=<expressao> <chamada_de_funcao_B>|ε
+<chamada_de_funcao_B>::=, <expressao> <chamada_de_funcao_B>|ε
+
+<intervalo>::=intervalo <intervalo_abertura> <expressao> , <expressao> <intervalo_passo>
+<intervalo_abertura>::=(|[
+<intervalo_fechamento>::=)|]
+<intervalo_passo>::=, <expressao> <intervalo_fechamento>|<intervalo_fechamento>
+
+<identificador>::=identificador <identificador_A>
+<identificador_A>::=[ <expressao> ] <identificador_A>|ε
+
+<lista>::=[ <lista_elementos> ]
+<lista_elementos>::=<expressao> <lista_elementos_A>|ε
+<lista_elementos_A>::=, <expressao> <lista_elementos_A>|ε
 
 <expressao>::=<expressao> ou <expressao_A>|<expressao_A>
 <expressao_A>::=<expressao_A> e <expressao_B>|<expressao_B>
 <expressao_B>::=<expressao_B> xou <expressao_C>|<expressao_C>
 <expressao_C>::=nao <expressao_C>|<expressao_D>
 <expressao_D>::=<expressao_D> <comparador> <expressao_E>|<expressao_E>
-<comparador>::=<=|=|>=|<|>|<>
+<comparador>::=<=|==|>=|<|>|<>
 <expressao_E>::=<expressao_E> <operadores_expressao_E> <expressao_F>|<expressao_F>
 <operadores_expressao_E>::=+|-
 <expressao_F>::=<expressao_F> <operadores_expressao_F> <expressao_G>|<expressao_G>
@@ -26,29 +40,49 @@
 <expressao_G>::=<operadores_expressao_G> <expressao_G>|<expressao_H>
 <operadores_expressao_G>::=+|-
 <expressao_H>::=<expressao_H> ^ <expressao_I>|<expressao_I>
-<expressao_I>::=( <expressao> )|numero|numero_real|variavel|char|verdadeiro|falso
+<expressao_I>::=( <expressao> )|numero|numero_real|string|verdadeiro|falso|<identificador>|<chamada_de_funcao>|<intervalo>|<lista>
 
-<atribuicao>::=variavel <atribuidor> <atribuicao_A>
+<atribuicao>::=identificador <atribuidor> <atribuicao_A>
 <atribuicao_A>::=<atribuicao>|<expressao>
-<atribuidor>::=<-|+<-|-<-|*<-|/<-
+<atribuidor>::==|+=|-=|*=|/=|//=|%=|^=
 
-<condicao>::=<expressao>|<atribuicao>
+<condicao>::=<expressao>
 
-<\n*>::=\n <\n*>|ε
+<se>::=se <condicao> { \n <acoes> } <senao>
+<senao>::=senao <senao_A>
+<senao_A>::=<se>|{ \n <acoes> }|ε
 
-<se>::=se ( <condicao> ) <\n*> { \n <acoes_internas> } <senao_se>
-<senao_se>::=senao_se ( <condicao> ) <\n*> { \n <acoes_internas> } <senao_se>|<senao>
-<senao>::=senao <\n*> { \n <acoes_internas> }|ε
+<compare>::=compare <expressao> { \n <compare_A> }
+<compare_A>::=caso seja <expressao> { \n <acoes> } <compare_B>
+<compare_B>::=caso seja <compare_C>|\n
+<compare_C>::=<expressao> { \n <acoes> } <compare_B>|diferente { \n <acoes> } \n
 
-<enquanto>::=enquanto ( <condicao> ) <\n*> { \n <acoes_internas> }
+<repita_vezes>::=<expressao> vezes { \n <acoes> }
 
-<repita>::=repita <\n*> { \n <acoes_internas> } enquanto ( <condicao> )
+<repita_enquanto>::=enquanto <condicao> { \n <acoes> }
 
-<para>::=para ( <atribuicao> ; <condicao> ; <atribuicao> ) <\n*> { \n <acoes_internas> }
+<repita_acoes_enquanto>::={ \n <acoes> } enquanto <condicao> \n
 
-<estrutura>::=<se>|<enquanto>|<repita>|<para>
+<repita_ate>::=ate <condicao>
+<repita_ate_A>::=inclusive <repita_ate_B>|<repita_ate_B>
+<repita_ate_B>::={ \n <acoes> }
 
-<leia>::=leia ( variavel )
+<repita_acoes_ate>::={ \n <acoes> } ate <condicao> <repita_acoes_ate_A>
+<repita_acoes_ate_A>::=inclusive|ε
 
-<escreva>::=escreva ( <expressao> <escreva_A> )
-<escreva_A>::=, <expressao> <escreva_A>|ε
+<repita_para_cada>::=para cada <identificador> <repita_para_cada_A> <expressao> { \n <acoes> }
+<repita_para_cada_A>::=em|no|na
+
+<repita>::=repita <repita_A>
+<repita_A>::=<repita_vezes>|<repita_enquanto>|<repita_acoes_enquanto>|<repita_ate>|<repita_acoes_ate>|<repita_para_cada>
+
+<estrutura_condicional_ou_repeticao>::=<se>|<compare>|<repita>
+
+<funcao>::=funcao identificador ( <funcao_parametros> ) <funcao_tipo_retorno> { \n <acoes> }
+<funcao_tipo_retorno>::=: <tipo_de_dado>|ε
+<funcao_parametros>::=identificador : <tipo_de_dado> <funcao_parametros_A>|ε
+<funcao_parametros_A>::=, identificador : <tipo_de_dado> <funcao_parametros_A>|ε
+
+<estrutura>::=estrutura identificador { \n <estrutura_A> }
+<estrutura_A>::=<declaracao> \n <estrutura_B>
+<estrutura_B>::=<declaracao> \n <estrutura_B>|ε
